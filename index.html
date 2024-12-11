@@ -109,10 +109,15 @@
             const calorieDeficit = (7700 * 2) / 30;
             let weightLossCalories = tdee - calorieDeficit;
 
+            // Pyöristetään tulokset lähimpään 100 kcal
+            bmr = Math.round(bmr / 100) * 100;
+            tdee = Math.round(tdee / 100) * 100;
+            weightLossCalories = Math.round(weightLossCalories / 100) * 100;
+
             document.getElementById("results").innerHTML = `
-                <strong>BMR:</strong> ${bmr.toFixed(2)} kcal<br>
-                <strong>TDEE:</strong> ${tdee.toFixed(2)} kcal<br>
-                <strong>Painonpudotus:</strong> ${weightLossCalories.toFixed(2)} kcal/päivä
+                <strong>BMR:</strong> ${bmr} kcal<br>
+                <strong>TDEE:</strong> ${tdee} kcal<br>
+                <strong>Painonpudotus:</strong> ${weightLossCalories} kcal/päivä
             `;
         }
     </script>
